@@ -1,8 +1,10 @@
 import { derived, writable } from "svelte/store";
 import translation from "./translation";
 
-// 当前语言
-export const locale = writable('zh_CN');
+const storedLocale = window.localStorage.getItem('locale')
+
+// 当前语言（从本地存储中读取，没有则选择中文
+export const locale = writable(storedLocale ? storedLocale : 'zh_CN');
 // 翻译文本
 export const locales = Object.entries(translation).map(([key, value]) => ({
   langShort: key,

@@ -1,11 +1,6 @@
-<script>
-  let dark = document.documentElement.classList.contains('dark');
-  $: fillColor = dark ? 'fill-slate-100' : 'fill-red-950'
-</script>
-
 <svg
 	viewBox="0 0 24 24"
-  class="w-8 {fillColor}"
+  class="w-8 dark:fill-slate-100 fill-red-950"
 	xmlns="http://www.w3.org/2000/svg"
 >
 	<path

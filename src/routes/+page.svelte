@@ -20,6 +20,10 @@
 			width: 'w-3/5'
 		});
 	};
+
+	const setLocale = (value) => {
+		window.localStorage.setItem('locale', value);
+	};
 </script>
 
 <div class="h-screen flex flex-col justify-center items-center gap-4">
@@ -40,7 +44,12 @@
 		<h3 class="h3 mb-4">{$t('app.selectLang')}</h3>
 		<RadioGroup border="none" rounded="rounded-container-token" display="flex-col">
 			{#each locales as l}
-				<RadioItem bind:group={$locale} name="lang" value={l.langShort}>{l.langName}</RadioItem>
+				<RadioItem
+					bind:group={$locale}
+					name="lang"
+					value={l.langShort}
+					on:click={() => setLocale(l.langShort)}>{l.langName}</RadioItem
+				>
 			{/each}
 		</RadioGroup>
 	</div>
