@@ -1,6 +1,11 @@
+<script>
+	export let size = 8;
+	$: width = `w-${size}`;
+</script>
+
 <svg
 	viewBox="0 0 36 36"
-	class="w-8 h-8"
+	class={width}
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	aria-hidden="true"
