@@ -9,7 +9,8 @@
 		initializeStores,
 		getDrawerStore,
 		RadioGroup,
-		RadioItem
+		RadioItem,
+		LightSwitch
 	} from '@skeletonlabs/skeleton';
 	initializeStores();
 	const drawerStore = getDrawerStore();
@@ -22,9 +23,12 @@
 </script>
 
 <div class="h-screen flex flex-col justify-center items-center gap-4">
-	<button type="button" class="absolute top-2 right-2 btn-icon" on:click={openDrawer}>
-		<LanguageIcon />
-	</button>
+	<div class="absolute top-2 right-2 flex gap-2 items-center">
+		<LightSwitch />
+		<button type="button" class=" btn-icon" on:click={openDrawer}>
+			<LanguageIcon />
+		</button>
+	</div>
 	<FondueIcon size={36} />
 	<h1 class="h1">{$t('app.title')}</h1>
 	<a href="/list">
