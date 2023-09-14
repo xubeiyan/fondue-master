@@ -6,6 +6,7 @@ export default {
     "app.startBoil": "Start Boil",
     "app.ingredientList": "Ingredient List",
     "app.addIngredient": "Add Ingredient",
+    "app.predefinedIngre": "Predefined Ingredient"
   },
   'zh_CN': {
     "lang.name": "中文(简体)",
