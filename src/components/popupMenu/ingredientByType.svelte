@@ -1,4 +1,6 @@
 <script>
+	// store
+	import { list } from '$src/store';
 	// 预先定义好的食材数据
 	import { predefined } from '$src/lib/predefinedIngredient';
 
@@ -18,6 +20,11 @@
 	const dispatch = createEventDispatcher();
 
 	const addIngre = (ingre) => {
+		const ingreWithId = { ...ingre, id: new Date().getTime() };
+		// push不会影响 array 的 reactivity
+		// 参见 https://learn.svelte.dev/tutorial/updating-arrays-and-objects
+		// $list.push(ingre) <- not work
+		$list = [...$list, ingreWithId];
 		dispatch('closeDrawer');
 	};
 </script>
