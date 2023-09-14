@@ -23,12 +23,12 @@
 
 <div class="absolute bottom-8 w-full flex justify-center">
 	<button type="button" class="w-1/2 btn variant-filled" on:click={openDrawer}
-		>{$t('app.addIngredient')}</button
+		>{$t('popMenu.addIngredient')}</button
 	>
 </div>
 <Drawer position="bottom">
 	<div class="relative p-4">
-		<h4 class="h4">{$t('app.predefinedIngre')}</h4>
+		<h4 class="h4">{$t('popMenu.predefinedIngre')}</h4>
 		<TabGroup justify="justify-center">
 			<Tab bind:group={typeSet} name="byType" value="byType">
 				<span>by Type</span>
