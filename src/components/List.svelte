@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 
 	import ListItem from './list/ListItem.svelte';
+	import ChopsticksIcon from '$src/asset/icons/chopsticks.svelte';
 
 	onMount(() => {
 		const A_SECOND = 1000;
@@ -27,6 +28,12 @@
 
 <div class="wrapper h-full m-4">
 	<h4 class="h4">{$t('list.ingredientList')}</h4>
+	{#if $list.length == 0}
+		<div class="w-full flex flex-col gap-4 items-center mt-12">
+			<ChopsticksIcon />
+			<span>{$t('list.emptyList')}</span>
+		</div>
+	{/if}
 	<ul class="list mx-6">
 		{#each $list as one (one.id)}
 			<ListItem id={one.id} name={one.name} boilTime={one.boilTime} />
