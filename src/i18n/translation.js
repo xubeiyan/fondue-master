@@ -5,10 +5,13 @@ export default {
     "app.selectLang": "Select Language",
     "app.startBoil": "Start Boil",
     "list.ingredientList": "Ingredient List",
-    "list.timeLeft": "{{boilTime}}s Left", 
+    "list.timeLeft": "{{boilTime}}s left", 
     "list.enjoyable": "It's enjoyable!",
-    "popMenu.addIngredient": "Add Ingredient",
     "popMenu.predefinedIngre": "Predefined Ingredient",
+    "popMenu.byType": "by Type",
+    "popMenu.byBoilTime": "by Boil Time",
+    "popMenu.addIngredient": "Add Ingredient",
+    "popMenu.boilTimeInterval": "sec",
   },
   'zh_CN': {
     "lang.name": "中文(简体)",
@@ -16,6 +19,12 @@ export default {
     "app.title": "火锅大师",
     "app.startBoil": "开烫",
     "list.ingredientList": "锅中菜品",
+    "list.timeLeft": "还剩{{boilTime}}秒", 
+    "list.enjoyable": "可以吃了！",
+    "popMenu.predefinedIngre": "预制菜品",
+    "popMenu.byType": "按类型",
+    "popMenu.byBoilTime": "按烫煮时间",
     "popMenu.addIngredient": "加菜入锅",
+    "popMenu.boilTimeInterval": "秒",
   }
 }

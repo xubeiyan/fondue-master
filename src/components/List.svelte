@@ -5,21 +5,23 @@
 
 	import ListItem from './list/ListItem.svelte';
 
-	const updateList = () => {
-		$list = $list.map(one => ({
-			...one,
-			boilTime: one.boilTime - 1 > 0 ? one.boilTime - 1 : 0,
-		}));
-	}
-
 	onMount(() => {
-		const timer = setInterval(() => {
-			updateList();
-		}, 1000);
+		const A_SECOND = 1000;
+		let timer = null;
+		
+		const updateList = () => {
+			$list = $list.map((one) => ({
+				...one,
+				boilTime: one.boilTime - 1 > 0 ? one.boilTime - 1 : 0
+			}));
+			timer = setTimeout(updateList, A_SECOND);
+		};
+
+		setTimeout(updateList, A_SECOND);
 
 		return () => {
-			clearInterval(timer);
-		}
+			clearTimeout(timer);
+		};
 	});
 </script>
 

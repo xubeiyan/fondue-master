@@ -4,6 +4,7 @@
 
 	import { t } from '$src/i18n/i18n';
 	import IngredientByType from './popupMenu/ingredientByType.svelte';
+	import IngredientByBoilTime from './popupMenu/ingredientByBoilTime.svelte';
 
 	const drawerStore = getDrawerStore();
 
@@ -15,10 +16,9 @@
 
 	const closeDrawer = () => {
 		drawerStore.close();
-	}
+	};
 
-	let typeSet = "byType";
-
+	let typeSet = 'byType';
 </script>
 
 <div class="absolute bottom-8 w-full flex justify-center">
@@ -31,14 +31,16 @@
 		<h4 class="h4">{$t('popMenu.predefinedIngre')}</h4>
 		<TabGroup justify="justify-center">
 			<Tab bind:group={typeSet} name="byType" value="byType">
-				<span>by Type</span>
+				<span>{$t('popMenu.byType')}</span>
 			</Tab>
 			<Tab bind:group={typeSet} name="byBoilTime" value="byBoilTime">
-				<span>by Boil Time</span>
+				<span>{$t('popMenu.byBoilTime')}</span>
 			</Tab>
 			<svelte:fragment slot="panel">
 				{#if typeSet == 'byType'}
 					<IngredientByType on:closeDrawer={closeDrawer} />
+				{:else if typeSet == 'byBoilTime'}
+					<IngredientByBoilTime on:closeDrawer={closeDrawer}/>
 				{/if}
 			</svelte:fragment>
 		</TabGroup>
