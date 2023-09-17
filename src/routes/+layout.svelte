@@ -2,6 +2,8 @@
 	import '../app.postcss';
 	import { getModeUserPrefers } from '@skeletonlabs/skeleton';
 
+	import { t } from '$src/i18n/i18n';
+
 	let darkMode = !getModeUserPrefers();
 
 	$: if (darkMode) {
@@ -12,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>火锅大师</title>
+	<title>{$t('app.title')}</title>
 </svelte:head>
 
 <slot />
