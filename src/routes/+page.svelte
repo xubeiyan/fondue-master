@@ -9,7 +9,8 @@
 		initializeStores,
 		getDrawerStore,
 		RadioGroup,
-		RadioItem
+		RadioItem,
+		LightSwitch
 	} from '@skeletonlabs/skeleton';
 	initializeStores();
 	const drawerStore = getDrawerStore();
@@ -19,12 +20,19 @@
 			width: 'w-3/5'
 		});
 	};
+
+	const setLocale = (value) => {
+		window.localStorage.setItem('locale', value);
+	};
 </script>
 
 <div class="h-screen flex flex-col justify-center items-center gap-4">
-	<button type="button" class="absolute top-2 right-2 btn-icon" on:click={openDrawer}>
-		<LanguageIcon />
-	</button>
+	<div class="absolute top-2 right-2 flex gap-2 items-center">
+		<LightSwitch />
+		<button type="button" class=" btn-icon" on:click={openDrawer}>
+			<LanguageIcon />
+		</button>
+	</div>
 	<FondueIcon size={36} />
 	<h1 class="h1">{$t('app.title')}</h1>
 	<a href="/list">
@@ -36,7 +44,12 @@
 		<h3 class="h3 mb-4">{$t('app.selectLang')}</h3>
 		<RadioGroup border="none" rounded="rounded-container-token" display="flex-col">
 			{#each locales as l}
-				<RadioItem bind:group={$locale} name="lang" value={l.langShort}>{l.langName}</RadioItem>
+				<RadioItem
+					bind:group={$locale}
+					name="lang"
+					value={l.langShort}
+					on:click={() => setLocale(l.langShort)}>{l.langName}</RadioItem
+				>
 			{/each}
 		</RadioGroup>
 	</div>
