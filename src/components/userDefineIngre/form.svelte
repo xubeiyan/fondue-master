@@ -20,10 +20,10 @@
 
 </script>
 
-<div class="flex flex-col items-center gap-2">
+<form class="flex flex-col items-center gap-2">
 	<div class="input-group input-group-divider grid-cols-[auto_1fr] h-10">
 		<div>{$t('popMenu.ingreName')}</div>
-		<input class="pl-2" type="text" bind:value={ingredientName} placeholder="{$t('popMenu.ingreName')}" />
+		<input class="pl-2" type="text" bind:value={ingredientName} placeholder="{$t('popMenu.ingreName')}"/>
 	</div>
 	<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] h-10">
 		<div>{$t('popMenu.boilTime')}</div>
@@ -31,4 +31,10 @@
 		<div>{$t('popMenu.boilTimeInterval')}</div>
 	</div>
 	<button type="button" class="btn btn-md variant-filled-surface w-1/2" on:click={addIngre}>{$t('popMenu.addIngredient')}</button>
-</div>
+</form>
+
+<style>
+  input:focus-visible {
+    outline: none;
+  }
+</style>
