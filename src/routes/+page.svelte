@@ -24,6 +24,9 @@
 	const setLocale = (value) => {
 		window.localStorage.setItem('locale', value);
 	};
+
+	// 从 package.json获得当前应用版本
+	const version = __APP_VERSION__;
 </script>
 
 <div class="h-screen flex flex-col justify-center items-center gap-4">
@@ -40,17 +43,22 @@
 	</a>
 </div>
 <Drawer position="right">
-	<div class="p-4">
-		<h3 class="h3 mb-4">{$t('app.selectLang')}</h3>
-		<RadioGroup border="none" rounded="rounded-container-token" display="flex-col">
-			{#each locales as l}
-				<RadioItem
-					bind:group={$locale}
-					name="lang"
-					value={l.langShort}
-					on:click={() => setLocale(l.langShort)}>{l.langName}</RadioItem
-				>
-			{/each}
-		</RadioGroup>
+	<div class="h-full p-4 flex flex-col justify-between">
+		<div>
+			<h3 class="h3 mb-4">{$t('app.selectLang')}</h3>
+			<RadioGroup border="none" rounded="rounded-container-token" display="flex-col">
+				{#each locales as l}
+					<RadioItem
+						bind:group={$locale}
+						name="lang"
+						value={l.langShort}
+						on:click={() => setLocale(l.langShort)}>{l.langName}</RadioItem
+					>
+				{/each}
+			</RadioGroup>
+		</div>
+		<div>
+			<h5 class="h5">{$t('app.version')} {version}</h5>
+		</div>
 	</div>
 </Drawer>

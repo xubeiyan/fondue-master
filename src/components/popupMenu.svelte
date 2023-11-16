@@ -5,6 +5,7 @@
 	import { t } from '$src/i18n/i18n';
 	import IngredientByType from './popupMenu/ingredientByType.svelte';
 	import IngredientByBoilTime from './popupMenu/ingredientByBoilTime.svelte';
+	import Form from './userDefineIngre/form.svelte';
 
 	const drawerStore = getDrawerStore();
 
@@ -27,6 +28,10 @@
 	>
 </div>
 <Drawer position="bottom">
+	<div class="p-4 pb-0 w-full">
+		<h4 class="h4 mb-2">{$t('popMenu.userDefineIngre')}</h4>
+		<Form on:closeDrawer={closeDrawer}/>
+	</div>
 	<div class="relative p-4">
 		<h4 class="h4">{$t('popMenu.predefinedIngre')}</h4>
 		<TabGroup justify="justify-center">
