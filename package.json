@@ -31,5 +31,8 @@
     "vite": "^4.4.2",
     "vite-plugin-tailwind-purgecss": "0.1.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "worker-timers": "^7.1.1"
+  }
 }

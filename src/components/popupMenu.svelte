@@ -28,26 +28,30 @@
 	>
 </div>
 <Drawer position="bottom">
-	<div class="p-4 pb-0 w-full">
-		<h4 class="h4 mb-2">{$t('popMenu.userDefineIngre')}</h4>
-		<Form on:closeDrawer={closeDrawer}/>
-	</div>
-	<div class="relative p-4">
-		<h4 class="h4">{$t('popMenu.predefinedIngre')}</h4>
-		<TabGroup justify="justify-center">
-			<Tab bind:group={typeSet} name="byType" value="byType">
-				<span>{$t('popMenu.byType')}</span>
-			</Tab>
-			<Tab bind:group={typeSet} name="byBoilTime" value="byBoilTime">
-				<span>{$t('popMenu.byBoilTime')}</span>
-			</Tab>
-			<svelte:fragment slot="panel">
-				{#if typeSet == 'byType'}
-					<IngredientByType on:closeDrawer={closeDrawer} />
-				{:else if typeSet == 'byBoilTime'}
-					<IngredientByBoilTime on:closeDrawer={closeDrawer}/>
-				{/if}
-			</svelte:fragment>
-		</TabGroup>
+	<div
+		class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10 h-full"
+	>
+		<div class="snap-start shrink-0 w-[95%]">
+			<h4 class="h4 mb-2">{$t('popMenu.userDefineIngre')}</h4>
+			<Form on:closeDrawer={closeDrawer} />
+		</div>
+		<div class="relative snap-start shrink-0 w-full">
+			<h4 class="h4">{$t('popMenu.predefinedIngre')}</h4>
+			<TabGroup justify="justify-center">
+				<Tab bind:group={typeSet} name="byType" value="byType">
+					<span>{$t('popMenu.byType')}</span>
+				</Tab>
+				<Tab bind:group={typeSet} name="byBoilTime" value="byBoilTime">
+					<span>{$t('popMenu.byBoilTime')}</span>
+				</Tab>
+				<svelte:fragment slot="panel">
+					{#if typeSet == 'byType'}
+						<IngredientByType on:closeDrawer={closeDrawer} />
+					{:else if typeSet == 'byBoilTime'}
+						<IngredientByBoilTime on:closeDrawer={closeDrawer} />
+					{/if}
+				</svelte:fragment>
+			</TabGroup>
+		</div>
 	</div>
 </Drawer>
