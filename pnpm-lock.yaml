@@ -19,6 +19,10 @@ specifiers:
   typescript: ^5.0.0
   vite: ^4.4.2
   vite-plugin-tailwind-purgecss: 0.1.3
+  worker-timers: ^7.1.1
+
+dependencies:
+  worker-timers: 7.1.1
 
 devDependencies:
   '@skeletonlabs/skeleton': 2.0.0_svelte@4.2.0
@@ -59,6 +63,13 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.19
     dev: true
+
+  /@babel/runtime/7.23.8:
+    resolution: {integrity: sha512-Y7KbAP984rn1VGMbGqKmBLio9V7y5Je9GvU4rQPCPinCyNfUcToxIXl06d59URp/F3LwinvODxab5N/G6qggkw==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.14.1
+    dev: false
 
   /@esbuild/android-arm/0.18.20:
     resolution: {integrity: sha512-fyi7TDI/ijKKNZTUJAQqiG5T7YjJXgnzkURqmGj13C6dCqckZBLdl4h7bkhHt/t0WP+zO9/zwroDvANaOqO5Sw==}
@@ -1092,6 +1103,14 @@ packages:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
     dev: true
 
+  /fast-unique-numbers/8.0.13:
+    resolution: {integrity: sha512-7OnTFAVPefgw2eBJ1xj2PGGR9FwYzSUso9decayHgCDX4sJkHLdcsYTytTg+tYv+wKF3U8gJuSBz2jJpQV4u/g==}
+    engines: {node: '>=16.1.0'}
+    dependencies:
+      '@babel/runtime': 7.23.8
+      tslib: 2.6.2
+    dev: false
+
   /fastq/1.15.0:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
     dependencies:
@@ -1877,6 +1896,10 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /regenerator-runtime/0.14.1:
+    resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
+    dev: false
+
   /resolve-from/4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
@@ -2282,6 +2305,10 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
+  /tslib/2.6.2:
+    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+    dev: false
+
   /type-check/0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -2408,6 +2435,31 @@ packages:
     dependencies:
       string-width: 4.2.3
     dev: true
+
+  /worker-timers-broker/6.1.1:
+    resolution: {integrity: sha512-CTlDnkXAewtYvw5gOwVIc6UuIPcNHJrqWxBMhZbCWOmadvl20nPs9beAsXlaTEwW3G2KBpuKiSgkhBkhl3mxDA==}
+    dependencies:
+      '@babel/runtime': 7.23.8
+      fast-unique-numbers: 8.0.13
+      tslib: 2.6.2
+      worker-timers-worker: 7.0.65
+    dev: false
+
+  /worker-timers-worker/7.0.65:
+    resolution: {integrity: sha512-Dl4nGONr8A8Fr+vQnH7Ee+o2iB480S1fBcyJYqnMyMwGRVyQZLZU+o91vbMvU1vHqiryRQmjXzzMYlh86wx+YQ==}
+    dependencies:
+      '@babel/runtime': 7.23.8
+      tslib: 2.6.2
+    dev: false
+
+  /worker-timers/7.1.1:
+    resolution: {integrity: sha512-axtq83GwPqYwkQmQmei2abQ9cT7oSwmLw4lQCZ9VmMH9g4t4kuEF1Gw+tdnIJGHCiZ2QPDnr/+307bYx6tynLA==}
+    dependencies:
+      '@babel/runtime': 7.23.8
+      tslib: 2.6.2
+      worker-timers-broker: 6.1.1
+      worker-timers-worker: 7.0.65
+    dev: false
 
   /wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
