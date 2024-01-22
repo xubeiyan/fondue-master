@@ -6,6 +6,9 @@
 	import ListItem from './list/ListItem.svelte';
 	import ChopsticksIcon from '$src/asset/icons/chopsticks.svelte';
 
+	// 可以保证浏览器unfoucus后（手机息屏）仍然计时
+	import { setTimeout, clearTimeout } from 'worker-timers';
+
 	onMount(() => {
 		const A_SECOND = 1000;
 		let timer = null;
